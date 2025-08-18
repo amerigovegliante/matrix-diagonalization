@@ -70,7 +70,7 @@ Two types of plots are generated:
 
 ---
 
-## 🔎 Workflow Diagram
+## Workflow Diagram
 ```mermaid
 flowchart TD
 
@@ -95,4 +95,5 @@ H2 --> I
 
 I --> J[Results and Analysis]
 J --> K[End]
+
 
