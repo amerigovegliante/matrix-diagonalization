@@ -7,7 +7,7 @@ warning('off','all');
 delta = 1e-4;                                                                                       % starting point for newthon method
 toll = 1e-8;                                                                                        % tollerance for zeros
 it = 10;                                                                                            % iterations for classic newthon method
-maxit = 100;                                                                                        % iterations for modifier newthon method
+maxit = 100;                                                                                        % iterations for modified newthon method
 
 %% TEST WITH WELL SPACED EIGENVALUES
 spaced_eigenvalues = [2, 350, 4332];

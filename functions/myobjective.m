@@ -17,8 +17,8 @@ function [f,g] = myobjective(z,A)
     % B matrix inversion
 
     id = eye(size(B));                                          % n x n identity matrix
-    y = L \ (P * id);                                           % solve linear system Ly = Pid
-    Binv = U \ y;                                               % solve linear system UBinv = y
+    y = L \ (P * id);                                           % solve linear system L*y = P*id
+    Binv = U \ y;                                               % solve linear system U*Binv = y
 
     g = 1 / trace(Binv);                                        % g = trace(B^-1)
 end
