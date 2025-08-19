@@ -9,7 +9,7 @@ toll = 1e-8;                                                                    
 it = 10;                                                                                            % iterations for classic newthon method
 maxit = 100;                                                                                        % iterations for modified newthon method
 
-%% TEST WITH WELL SPACED EIGENVALUES
+% TEST WITH WELL SPACED EIGENVALUES
 spaced_eigenvalues = [2, 350, 4332];
 spaced_results = zeros(1,7);
 
