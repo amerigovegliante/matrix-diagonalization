@@ -4,40 +4,41 @@ addpath("testing\");
 
 warning('off','all'); 
 
-delta = 1e-4;                                                                                       % starting point for newthon method
-toll = 1e-8;                                                                                        % tollerance for zeros
-it = 10;                                                                                            % iterations for classic newthon method
-maxit = 100;                                                                                        % iterations for modified newthon method
+delta = 1e-4;                                                                                       
+toll = 1e-8;                                                                                        
+it = 10;                                                                                            
+maxit = 100;                                                                                        
 
 % TEST WITH WELL SPACED EIGENVALUES
 spaced_eigenvalues = [2, 350, 4332];
 spaced_results = zeros(1,7);
 
 for i = 1:7 
-    A = test_matrix_gen(spaced_eigenvalues,i * ones(size(spaced_eigenvalues)));                     % jordan matrix with eigv with i multiplicity
-    res = test_diagonalization(A, spaced_eigenvalues, delta, toll, it, maxit);                      % check if A is diagonalizable
-    spaced_results(i) = res;                                                                        % store result (0 or 1)
+    A = test_matrix_gen(spaced_eigenvalues,i * ones(size(spaced_eigenvalues)));                     
+    res = test_diagonalization(A, spaced_eigenvalues, delta, toll, it, maxit);                      
+    spaced_results(i) = res;                                                                        
 end
 
 % TEST WITH CLUSTERED EIGENVALUES
 clustered_results = []; 
 
 for i = 1:4 
-    clustered_eigenvalues = [2 + 3 * 10^-i, 2 + 2 * 10^-i, 2 + 10^-i];                              % [2.3, 2.2, 2.1, 2.0] ... [2.0003, ... , 2]
-    row_results = [];                                                                               % results of the given delta
+    clustered_eigenvalues = [2 + 3 * 10^-i, 2 + 2 * 10^-i, 2 + 10^-i];                              
+    row_results = [];                                                                               
     
     for j = 1:7 
-        A = test_matrix_gen(clustered_eigenvalues, j * ones(size(clustered_eigenvalues)));          % jordan matrix with eigv with i multiplicity
-        res = test_diagonalization(A, clustered_eigenvalues, delta, toll, it, maxit);               % check if A is diagonalizable
-        row_results = [row_results, res];                                                           % store results
+        A = test_matrix_gen(clustered_eigenvalues, j * ones(size(clustered_eigenvalues)));          
+        res = test_diagonalization(A, clustered_eigenvalues, delta, toll, it, maxit);               
+        row_results = [row_results, res];                                                          
     end
     
     if length(row_results) < 7                                                                      
         row_results(end+1:7) = NaN;
     end
     
-    clustered_results = [clustered_results; row_results];                                           % store new row in the total results
+    clustered_results = [clustered_results; row_results];                                           
 end 
 
-spaced_graph(spaced_results);                                                                       % graph for the well spaced eigv experiment
-clustered_graph(clustered_results);                                                                 % graph for the clustered eigv experiment   
+spaced_graph(spaced_results);                                                                      
+
+clustered_graph(clustered_results);                                                                    
