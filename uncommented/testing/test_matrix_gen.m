@@ -11,9 +11,9 @@ end
 
 function J = create_jordan(eigenvals, multiplicities)                           
     
-    J = [];                                                                 % init J, Jordan normal form matrix
+    J = [];                                                                 
 
-    if length(eigenvals) ~= length(multiplicities)                          % infos integrity check    
+    if length(eigenvals) ~= length(multiplicities)                             
         error("The eigenvalues given are more than the multeplicities");
     end
 
@@ -22,9 +22,10 @@ function J = create_jordan(eigenvals, multiplicities)
         for i = 1:multiplicities(k) - 1 
             block(i,i + 1) = 1;
         end
-        J = blkdiag(J,block);                                               % puts the given block as a diagonal element in a matrix
+        J = blkdiag(J,block);                                               
     end
 end
+
 
 
 
