@@ -1,10 +1,11 @@
 function [k] = multgeo(A, l, toll) 
 
-    if size(A,1) ~= size(A,2)                   % A size integrity check
+    if size(A,1) ~= size(A,2)                   
         error("A is not a square matrix!");
     end
 
-    [~,U,~] = lu(A - l * eye(size(A)));         % lu factorization of A-lI
+    [~,U,~] = lu(A - l * eye(size(A)));         %
 
-    k = sum(abs(diag(U)) < toll);               % count how many 0 on the diagonal of U
+    k = sum(abs(diag(U)) < toll);               
 end
+
